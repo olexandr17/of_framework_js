@@ -75,6 +75,12 @@ var app = angular.module('app', []).controller('pokemonCtrl', function($scope) {
   function update(loading) {
     $scope.isLoading = loading;
 
+    if (loading) {
+      $('#progress').addClass('active');
+    } else {
+      $('#progress').removeClass('active');
+    }
+
     if(!$scope.$$phase)
       $scope.$apply();
   }

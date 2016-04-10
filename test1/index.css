@@ -1,2 +1,3 @@
 table.fixed { table-layout:fixed; }
 table.fixed td { overflow: hidden; }
+div.pokemon { height: 240px; }

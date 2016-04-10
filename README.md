@@ -7,5 +7,7 @@
 ```
 
 Test tasks for JS cources from Kottans. Tasks were done partially.
-Used editor - Atom
-Used frameworks - Angular, Bootstrap
+
+Used editor - Atom.
+
+Used frameworks - Angular, Bootstrap.
