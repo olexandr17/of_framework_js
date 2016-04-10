@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="service.js"></script>
+    <script src="index.js"></script>
+    <title>Kottans: pokemons</title>
+  </head>
+  <body>
+    <div ng-app="app" ng-controller="pokemonCtrl" class="container">
+      <div class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 100%" />
+
+        </div>
+      </div>
+
+      <div>
+        <h1 class="text-center">Pokedex</h1>
+      </div>
+
+      <div class="col-md-8">
+        <div ng-show="pokemons.length > 0">
+          <br>
+          <div ng-repeat="pokemon in pokemons" ng-click="onItemClick($index)">
+            <div class="col-md-4 panel panel-default">
+              <img src="{{pokemon.image}}" width="120" height="120" class="thumbnail"/>
+              <h4>{{pokemon.name}}</h4>
+              <div ng-repeat="type in pokemon.types">
+                <h5>{{type.name}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <input type="button" value="Load more" ng-click="onClickLoad()" ng-disabled="isLoading || types.length == 0" class="btn btn-primary btn-lg col-md-12"/>
+      </div>
+      <div ng-show="selected != -1" class="col-md-4 panel panel-default">
+        <img src="{{image}}" width="200" height="200" class="thumbnail"/>
+        <h3 class="text-center">{{name}}</h3>
+        <table class="table table-bordered">
+          <col width="50%"/>
+          <col width="50%"/>
+          <tr><td class="text-center">Type(s):</td><td class="text-center">{{types}}</td></tr>
+          <tr><td class="text-center">Attack:</td><td class="text-center">{{attack}}</td></tr>
+          <tr><td class="text-center">Defense:</td><td class="text-center">{{defense}}</td></tr>
+          <tr><td class="text-center">HP:</td><td class="text-center">{{hp}}</td></tr>
+          <tr><td class="text-center">SP Attack:</td><td class="text-center">{{sp_attack}}</td></tr>
+          <tr><td class="text-center">SP Defense:</td><td class="text-center">{{sp_defense}}</td></tr>
+          <tr><td class="text-center">Speed:</td><td class="text-center">{{speed}}</td></tr>
+          <tr><td class="text-center">Weight:</td><td class="text-center">{{weight}}</td></tr>
+          <tr><td class="text-center">Total moves:</td><td class="text-center">{{total_moves}}</td></tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
